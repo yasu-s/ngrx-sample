@@ -1,2 +1,4 @@
-# ngrx-sample
-ngrx sample
+# 概要
+
+ngrxを使用したサンプルです。 
+

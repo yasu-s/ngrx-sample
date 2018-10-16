@@ -8,9 +8,6 @@ export interface State {
   loading: boolean;
 }
 
-export const initState: State = {
-  loading: false
-};
 
 /**
  * Actionの種類
@@ -20,15 +17,13 @@ export enum LoadingActionType {
   Hide = '[Loading] Hide',
 }
 
-export function loadingReducer(state: State = initState, action: Action): State {
+export function loadingReducer(state: boolean = false, action: Action): boolean {
   switch (action.type) {
     case LoadingActionType.Show:
-      return { loading: true };
+      return true;
     case LoadingActionType.Hide:
-      return { loading: false };
+      return false;
     default:
       return state;
   }
 }
-
-export const getLoading = (state: State) => state.loading;
