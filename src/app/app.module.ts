@@ -6,7 +6,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { LoadingComponent } from './loading.component';
-import { loadingReducer } from './store/index';
+import { loadingReducer, counterReducer } from './store/index';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { loadingReducer } from './store/index';
   imports: [
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-    StoreModule.forRoot({ loading: loadingReducer }),
+    StoreModule.forRoot({ loading: loadingReducer, count: counterReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent]

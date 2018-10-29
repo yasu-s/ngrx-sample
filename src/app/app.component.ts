@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { State, LoadingActionType } from './store';
+import { AppState, LoadingActionType } from './store';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +22,7 @@ export class AppComponent {
    *
    * @param store
    */
-  constructor(private store: Store<State>) {
+  constructor(private store: Store<AppState>) {
   }
 
   show(): void {
