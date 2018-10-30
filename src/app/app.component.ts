@@ -8,11 +8,13 @@ import { AppState, LoadingActionType } from './store';
   template: `
     <h2>Ngrx Sample</h2>
     <div>
-      <custom-loading></custom-loading>
-    </div>
-    <div>
-      <button (click)="show()">Show</button>
-      <button (click)="hide()">Hide</button>
+      <div>
+        <button (click)="show()">Show</button>
+        <button (click)="hide()">Hide</button>
+      </div>
+      <div>
+        <custom-loading></custom-loading>
+      </div>
     </div>
   `
 })
