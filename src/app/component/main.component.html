@@ -1,0 +1,25 @@
+<mat-tab-group>
+  <mat-tab label="Loading Sample">
+    <div style="margin: 5px;">
+      <div>
+        <button mat-raised-button (click)="show()">Show</button>
+        <button mat-raised-button (click)="hide()">Hide</button>
+      </div>
+      <div style="margin-top: 10px; height: 150px;">
+        <custom-loading></custom-loading>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Counter Sample">
+    <div style="margin: 5px;">
+      <div>
+        <button mat-raised-button (click)="increment()">Increment</button>
+        <button mat-raised-button (click)="decrement()">Decrement</button>
+        <button mat-raised-button (click)="reset()">Reset</button>
+      </div>
+      <div style="margin-top: 10px;">
+        <custom-counter></custom-counter>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -1,21 +1,24 @@
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { MatProgressSpinnerModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatTabsModule, MatButtonModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { LoadingComponent, MainComponent } from './component';
+import { CounterComponent, LoadingComponent, MainComponent } from './component';
 import { AppStoreModule } from './store/index';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
+    CounterComponent,
     LoadingComponent,
   ],
   imports: [
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    MatTabsModule,
+    MatButtonModule,
     AppStoreModule,
   ],
   providers: [],

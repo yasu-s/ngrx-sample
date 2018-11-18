@@ -1,22 +1,11 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { AppState, LoadingActionType } from '../store';
+import { AppState, LoadingActionType, CounterActionType } from '../store';
 
 @Component({
   selector: 'app-main',
-  template: `
-    <h2>Ngrx Sample</h2>
-    <div>
-      <div>
-        <button (click)="show()">Show</button>
-        <button (click)="hide()">Hide</button>
-      </div>
-      <div>
-        <custom-loading></custom-loading>
-      </div>
-    </div>
-  `
+  templateUrl: './main.component.html'
 })
 export class MainComponent {
 
@@ -34,4 +23,17 @@ export class MainComponent {
   hide(): void {
     this.store.dispatch({ type: LoadingActionType.Hide });
   }
+
+  increment(): void {
+    this.store.dispatch({ type: CounterActionType.Increment });
+  }
+
+  decrement(): void {
+    this.store.dispatch({ type: CounterActionType.Decrement });
+  }
+
+  reset(): void {
+    this.store.dispatch({ type: CounterActionType.Reset });
+  }
+
 }
