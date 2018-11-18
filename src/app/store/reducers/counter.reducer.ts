@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { AppState } from '../models';
 
 /**
  * Action種類：Counter
@@ -26,3 +27,7 @@ export function counterReducer(state: number = 0, action: Action): number {
       return state;
   }
 }
+
+
+/** */
+export const getCount = (state: AppState) => state.count;

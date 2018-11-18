@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { AppState } from '../models';
 
 /**
  * Action種類：Loading
@@ -23,3 +24,6 @@ export function loadingReducer(state: boolean = false, action: Action): boolean 
       return state;
   }
 }
+
+/** */
+export const getLoading = (state: AppState) => state.loading;

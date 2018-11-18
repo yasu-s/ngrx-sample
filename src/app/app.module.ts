@@ -2,21 +2,21 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material';
-import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
-import { LoadingComponent } from './loading.component';
-import { loadingReducer, counterReducer } from './store/index';
+import { LoadingComponent, MainComponent } from './component';
+import { AppStoreModule } from './store/index';
 
 @NgModule({
   declarations: [
     AppComponent,
+    MainComponent,
     LoadingComponent,
   ],
   imports: [
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
-    StoreModule.forRoot({ loading: loadingReducer, count: counterReducer }),
+    AppStoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

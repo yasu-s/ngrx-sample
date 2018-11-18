@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { AppState } from './store';
+import { AppState, getLoading } from '../store';
 
 @Component({
   selector: 'custom-loading',
@@ -20,6 +20,6 @@ export class LoadingComponent {
    * @param store
    */
   constructor(private store: Store<AppState>) {
-    this.isLoading$ = store.select(s => s.loading);
+    this.isLoading$ = store.select(getLoading);
   }
 }
