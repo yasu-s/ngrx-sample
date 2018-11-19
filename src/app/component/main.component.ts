@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 import { AppState, LoadingActionType, CounterActionType } from '../store';
 
@@ -22,6 +24,13 @@ export class MainComponent {
 
   hide(): void {
     this.store.dispatch({ type: LoadingActionType.Hide });
+  }
+
+  delay(): void {
+    this.store.dispatch({ type: LoadingActionType.Show });
+    of(null).pipe(delay(3000)).subscribe(_ => {
+      this.store.dispatch({ type: LoadingActionType.Hide });
+    });
   }
 
   increment(): void {
