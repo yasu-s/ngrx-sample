@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 
-import { loadingReducer, counterReducer } from './reducers';
+import { reducers } from './reducers';
 
 @NgModule({
   imports: [
-    StoreModule.forRoot({ loading: loadingReducer, count: counterReducer }),
+    StoreModule.forRoot(reducers),
   ]
 })
 export class AppStoreModule { }

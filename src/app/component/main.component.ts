@@ -28,6 +28,7 @@ export class MainComponent {
 
   delay(): void {
     this.store.dispatch({ type: LoadingActionType.Show });
+
     of(null).pipe(delay(3000)).subscribe(_ => {
       this.store.dispatch({ type: LoadingActionType.Hide });
     });
