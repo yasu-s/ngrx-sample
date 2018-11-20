@@ -304,6 +304,11 @@
   resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-7.0.0-beta.0.tgz#b3985513f994d40f7c101ffc93d67e8ddb5537c7"
   integrity sha512-yw0NXseLZltUY7ImUwPC0E9pR6FYiicY1mujjV5OdzIL1N4CMF56siuB+V9N3TzmWp61ZO2edmdECxPV3eXftg==
 
+"@ngrx/store-devtools@7.0.0-beta.0":
+  version "7.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-7.0.0-beta.0.tgz#849274a67fad1fca25a1a683f486b2f0e5542752"
+  integrity sha512-AZOioU7Shsiz2HHEiFHLTR5BNlD9vHuAod/Nn7gJs8hk9GXE25RtXvGP+v6el178YcErUtp6OPfr9joNVWurJg==
+
 "@ngrx/store@7.0.0-beta.0":
   version "7.0.0-beta.0"
   resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-7.0.0-beta.0.tgz#0e174ced7aace3b6544a1f3d34ec902642e8d127"
