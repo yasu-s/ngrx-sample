@@ -16,6 +16,3 @@ export function reducer(state: Memo[] = [], action: MemoActions): Memo[] {
       return state;
   }
 }
-
-/** */
-export const getLoading = (state: AppState) => state.loading;

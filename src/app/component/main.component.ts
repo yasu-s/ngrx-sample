@@ -3,7 +3,8 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 
-import { AppState, LoadingActionType, CounterActionType } from '../store';
+import { LoadingActionType, LoadingState } from '../store/loading';
+import { CounterActionType, CounterState } from '../store/counter';
 
 @Component({
   selector: 'app-main',
@@ -13,37 +14,38 @@ export class MainComponent {
 
   /**
    *
-   * @param store
+   * @param loadingStore
+   * @param counterStore
    */
-  constructor(private store: Store<AppState>) {
+  constructor(private loadingStore: Store<LoadingState>, private counterStore: Store<CounterState>) {
   }
 
   show(): void {
-    this.store.dispatch({ type: LoadingActionType.Show });
+    this.loadingStore.dispatch({ type: LoadingActionType.Show });
   }
 
   hide(): void {
-    this.store.dispatch({ type: LoadingActionType.Hide });
+    this.loadingStore.dispatch({ type: LoadingActionType.Hide });
   }
 
   delay(): void {
-    this.store.dispatch({ type: LoadingActionType.Show });
+    this.loadingStore.dispatch({ type: LoadingActionType.Show });
 
     of(null).pipe(delay(3000)).subscribe(_ => {
-      this.store.dispatch({ type: LoadingActionType.Hide });
+      this.loadingStore.dispatch({ type: LoadingActionType.Hide });
     });
   }
 
   increment(): void {
-    this.store.dispatch({ type: CounterActionType.Increment });
+    this.counterStore.dispatch({ type: CounterActionType.Increment });
   }
 
   decrement(): void {
-    this.store.dispatch({ type: CounterActionType.Decrement });
+    this.counterStore.dispatch({ type: CounterActionType.Decrement });
   }
 
   reset(): void {
-    this.store.dispatch({ type: CounterActionType.Reset });
+    this.counterStore.dispatch({ type: CounterActionType.Reset });
   }
 
 }

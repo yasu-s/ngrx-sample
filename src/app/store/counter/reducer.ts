@@ -1,5 +1,5 @@
 import { Action, createFeatureSelector, createSelector } from '@ngrx/store';
-import { CounterRootState, CounterState, initState } from './model';
+import { CounterFeatureState, CounterState, initState } from './model';
 
 /**
  * Action種類：Counter
@@ -28,7 +28,7 @@ export function reducer(state: CounterState = initState, action: Action): Counte
   }
 }
 
-export const selectCounterFeature = createFeatureSelector<CounterRootState, CounterState>('counter');
+export const selectCounterFeature = createFeatureSelector<CounterFeatureState, CounterState>('counter');
 
 /** */
 export const getCount = createSelector(selectCounterFeature, (state: CounterState) => state.count);

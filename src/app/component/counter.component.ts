@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 
-import { CounterRootState, getCount } from '../store';
+import { CounterFeatureState, getCount } from '../store/counter';
 
 @Component({
   selector: 'custom-counter',
@@ -19,7 +19,7 @@ export class CounterComponent {
    *
    * @param store
    */
-  constructor(private store: Store<CounterRootState>) {
+  constructor(store: Store<CounterFeatureState>) {
     this.count$ = store.pipe(select(getCount));
   }
 }
