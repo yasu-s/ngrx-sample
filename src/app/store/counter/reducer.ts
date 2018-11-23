@@ -1,14 +1,6 @@
-import { Action, createFeatureSelector, createSelector } from '@ngrx/store';
-import { CounterFeatureState, CounterState, initState } from './model';
-
-/**
- * Action種類：Counter
- */
-export enum CounterActionType {
-  Increment = '[Counter] Increment',
-  Decrement = '[Counter] Decrement',
-  Reset     = '[Counter] Reset',
-}
+import { Action } from '@ngrx/store';
+import { CounterActionType } from './action';
+import { CounterState, initState } from './model';
 
 /**
  *
@@ -27,8 +19,3 @@ export function reducer(state: CounterState = initState, action: Action): Counte
       return state;
   }
 }
-
-export const selectCounterFeature = createFeatureSelector<CounterFeatureState, CounterState>('counter');
-
-/** */
-export const getCount = createSelector(selectCounterFeature, (state: CounterState) => state.count);

@@ -1,13 +1,6 @@
-import { Action, createFeatureSelector, createSelector } from '@ngrx/store';
-import { LoadingFeatureState, LoadingState, initState } from './model';
-
-/**
- * Action種類：Loading
- */
-export enum LoadingActionType {
-  Show = '[Loading] Show',
-  Hide = '[Loading] Hide',
-}
+import { Action } from '@ngrx/store';
+import { LoadingActionType } from './action';
+import { LoadingState, initState } from './model';
 
 /**
  *
@@ -24,9 +17,3 @@ export function reducer(state: LoadingState = initState, action: Action): Loadin
       return state;
   }
 }
-
-/** */
-export const selectLoadingFeature = createFeatureSelector<LoadingFeatureState, LoadingState>('loading');
-
-/** */
-export const getLoading = createSelector(selectLoadingFeature, (state: LoadingState) => state.isloading);

@@ -3,13 +3,14 @@ import { StoreModule } from '@ngrx/store';
 
 import { CounterStoreModule } from './counter';
 import { LoadingStoreModule } from './loading';
-import { reducers } from './reducers';
+import { MemoStoreModule } from './memo';
 
 @NgModule({
   imports: [
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot({}),
     CounterStoreModule,
     LoadingStoreModule,
+    MemoStoreModule,
   ]
 })
 export class AppStoreModule { }
