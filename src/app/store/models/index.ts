@@ -7,7 +7,5 @@ export interface AppState {
   /** */
   loading: boolean;
   /** */
-  count: number;
-  /** */
   memo: Memo[];
 }
