@@ -6,3 +6,6 @@ export const selectMemoFeature = createFeatureSelector<MemoFeatureState, MemoSta
 
 /** */
 export const getMemos = createSelector(selectMemoFeature, (state: MemoState) => state.memos);
+
+/** */
+export const getError = createSelector(selectMemoFeature, (state: MemoState) => state.error);

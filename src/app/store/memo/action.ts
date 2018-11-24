@@ -45,7 +45,7 @@ export class GetMemoFailAction implements Action {
  */
 export class CreateMemoAction implements Action {
   readonly type = MemoActionType.CreateMemo;
-  constructor(public payload: { memo: Memo }) {
+  constructor(public payload: { memo: string }) {
   }
 }
 
