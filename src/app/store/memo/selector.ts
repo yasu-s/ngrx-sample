@@ -1,11 +1,12 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { MemoFeatureState, MemoState } from './model';
+import { FEATURE_NAME } from './const';
+import { MemoFeatureState } from './model';
 
 /** */
-export const selectMemoFeature = createFeatureSelector<MemoFeatureState, MemoState>('memo');
+export const selectMemoFeature = createFeatureSelector<MemoFeatureState>(FEATURE_NAME);
 
 /** */
-export const getMemos = createSelector(selectMemoFeature, (state: MemoState) => state.memos);
+export const getMemos = createSelector(selectMemoFeature, (state) => state.memo.memos);
 
 /** */
-export const getError = createSelector(selectMemoFeature, (state: MemoState) => state.error);
+export const getError = createSelector(selectMemoFeature, (state) => state.memo.error);

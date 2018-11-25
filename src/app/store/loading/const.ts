@@ -1,3 +1,6 @@
+/** */
+export const FEATURE_NAME = 'loading_store';
+
 /**
  * Action種類：Loading
  */

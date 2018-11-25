@@ -1,6 +1,11 @@
-import { Action } from '@ngrx/store';
-import { LoadingActionType } from './action';
-import { LoadingState, initState } from './model';
+import { Action, ActionReducerMap } from '@ngrx/store';
+import { LoadingActionType } from './const';
+import { LoadingState, initState, LoadingFeatureState } from './model';
+
+/** */
+export const reducers: ActionReducerMap<LoadingFeatureState> = {
+  loading: reducer
+}
 
 /**
  *

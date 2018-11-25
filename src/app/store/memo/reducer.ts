@@ -1,5 +1,12 @@
-import { MemoActionType, MemoActions } from './action';
-import { MemoState, initState } from './model';
+import { ActionReducerMap } from '@ngrx/store';
+import { MemoActionType } from './const';
+import { MemoActions } from './action';
+import { MemoState, initState, MemoFeatureState } from './model';
+
+/** */
+export const reducers: ActionReducerMap<MemoFeatureState> = {
+  memo: reducer
+}
 
 /**
  *

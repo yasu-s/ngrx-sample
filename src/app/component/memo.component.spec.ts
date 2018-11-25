@@ -6,15 +6,12 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { MemoComponent } from './memo.component';
 import { Memo } from '../model';
-import {
-  MemoFeatureState, MemoStoreModule,
-  GetMemoAction, GetMemoSuccessAction
-} from '../store/memo';
+import * as fromMemo from '../store/memo';
 
 describe('MemoComponent', () => {
   let component: MemoComponent;
   let fixture: ComponentFixture<MemoComponent>;
-  let store: Store<MemoFeatureState>;
+  let store: Store<fromMemo.MemoFeatureState>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -25,7 +22,7 @@ describe('MemoComponent', () => {
         MatInputModule,
         StoreModule.forRoot({}),
         EffectsModule.forRoot([]),
-        MemoStoreModule,
+        StoreModule.forFeature(fromMemo.FEATURE_NAME, fromMemo.reducer),
       ],
       declarations: [
         MemoComponent,
@@ -52,7 +49,7 @@ describe('MemoComponent', () => {
       component.ngOnInit();
 
       // verify
-      expect(store.dispatch).toHaveBeenCalledWith(new GetMemoAction());
+      expect(store.dispatch).toHaveBeenCalledWith(new fromMemo.GetMemoAction());
     });
   });
 
@@ -60,7 +57,7 @@ describe('MemoComponent', () => {
     it('success', done => {
       // setup
       const memos = [{ text: 'hoge' }, { text: 'memo' }] as Memo[];
-      const action = new GetMemoSuccessAction({ memos: memos });
+      const action = new fromMemo.GetMemoSuccessAction({ memos: memos });
 
       // exercise
       store.dispatch(action);

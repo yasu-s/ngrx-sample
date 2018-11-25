@@ -4,8 +4,9 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { catchError, map, switchMap, mergeMap } from 'rxjs/operators';
 
+import { MemoActionType } from './const';
 import {
-  MemoActionType, GetMemoAction, GetMemoSuccessAction, GetMemoFailAction,
+  GetMemoAction, GetMemoSuccessAction, GetMemoFailAction,
   CreateMemoAction, CreateMemoSuccessAction
 } from './action';
 import { MemoService } from './service';

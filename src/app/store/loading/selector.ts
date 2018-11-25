@@ -1,8 +1,9 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { LoadingFeatureState, LoadingState } from './model';
+import { FEATURE_NAME } from './const';
+import { LoadingFeatureState } from './model';
 
 /** */
-export const selectLoadingFeature = createFeatureSelector<LoadingFeatureState, LoadingState>('loading');
+export const selectLoadingFeature = createFeatureSelector<LoadingFeatureState>(FEATURE_NAME);
 
 /** */
-export const getLoading = createSelector(selectLoadingFeature, (state: LoadingState) => state.isloading);
+export const getLoading = createSelector(selectLoadingFeature, (state) => state.loading.isloading);

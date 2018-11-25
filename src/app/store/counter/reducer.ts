@@ -1,6 +1,11 @@
-import { Action } from '@ngrx/store';
-import { CounterActionType } from './action';
-import { CounterState, initState } from './model';
+import { Action, ActionReducerMap } from '@ngrx/store';
+import { CounterActionType } from './const';
+import { CounterState, initState, CounterFeatureState } from './model';
+
+/** */
+export const reducers: ActionReducerMap<CounterFeatureState> = {
+  counter: reducer
+}
 
 /**
  *

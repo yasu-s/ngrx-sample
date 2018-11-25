@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 
-import { reducer } from './reducer';
+import { FEATURE_NAME } from './const';
+import { reducers } from './reducer';
 
 @NgModule({
   imports: [
-    StoreModule.forFeature('loading', reducer)
+    StoreModule.forFeature(FEATURE_NAME, reducers)
   ]
 })
 export class LoadingStoreModule { }

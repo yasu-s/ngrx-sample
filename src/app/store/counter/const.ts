@@ -1,3 +1,6 @@
+/** */
+export const FEATURE_NAME = 'counter_store';
+
 /**
  * Action種類：Counter
  */
