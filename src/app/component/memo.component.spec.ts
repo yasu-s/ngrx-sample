@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { MatListModule, MatButtonModule, MatInputModule } from '@angular/material';
 import { StoreModule, Store } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { provideMockActions } from '@ngrx/effects/testing';
+import { ReplaySubject } from 'rxjs';
 
 import { MemoComponent } from './memo.component';
 import { Memo } from '../model';
@@ -12,6 +14,7 @@ describe('MemoComponent', () => {
   let component: MemoComponent;
   let fixture: ComponentFixture<MemoComponent>;
   let store: Store<fromMemo.MemoFeatureState>;
+  let actions: ReplaySubject<any>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -22,11 +25,14 @@ describe('MemoComponent', () => {
         MatInputModule,
         StoreModule.forRoot({}),
         EffectsModule.forRoot([]),
-        StoreModule.forFeature(fromMemo.FEATURE_NAME, fromMemo.reducer),
+        StoreModule.forFeature(fromMemo.FEATURE_NAME, fromMemo.reducers),
       ],
       declarations: [
         MemoComponent,
       ],
+      providers: [
+        provideMockActions(() => actions),
+      ]
     }).compileComponents();
   }));
 
@@ -51,6 +57,17 @@ describe('MemoComponent', () => {
       // verify
       expect(store.dispatch).toHaveBeenCalledWith(new fromMemo.GetMemoAction());
     });
+
+    it('MemoActionType.CreateMemoSuccess', () => {
+      // setup
+      actions = new ReplaySubject(1);
+
+      // exercise
+      actions.next(new fromMemo.CreateMemoSuccessAction({ memo: null }));
+
+      // verify
+      expect(component.memo).toBe('');
+    });
   });
 
   describe('memos$', () => {
@@ -71,5 +88,28 @@ describe('MemoComponent', () => {
   });
 
   describe('addMemo', () => {
+    it('success', () => {
+      // setup
+      component.memo = 'dummy';
+      spyOn(store, 'dispatch').and.callThrough();
+
+      // exercise
+      component.addMemo();
+
+      // verify
+      expect(store.dispatch).toHaveBeenCalledWith(new fromMemo.CreateMemoAction({ memo: 'dummy' }));
+    });
+
+    it('memo = empty', () => {
+      // setup
+      component.memo = '';
+      spyOn(store, 'dispatch').and.callThrough();
+
+      // exercise
+      component.addMemo();
+
+      // verify
+      expect(store.dispatch).not.toHaveBeenCalled();
+    });
   });
 });

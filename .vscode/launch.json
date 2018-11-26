@@ -20,13 +20,6 @@
       "runtimeArgs": [
           "--remote-debugging-port=9222"
       ]
-    },
-    {
-      "type": "chrome",
-      "request": "attach",
-      "name": "Attach to Chrome - test",
-      "port": 9222,
-      "webRoot": "${workspaceFolder}/../",
     }
   ]
 }
