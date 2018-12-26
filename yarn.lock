@@ -299,20 +299,20 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@ngrx/effects@7.0.0-beta.0":
-  version "7.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-7.0.0-beta.0.tgz#b3985513f994d40f7c101ffc93d67e8ddb5537c7"
-  integrity sha512-yw0NXseLZltUY7ImUwPC0E9pR6FYiicY1mujjV5OdzIL1N4CMF56siuB+V9N3TzmWp61ZO2edmdECxPV3eXftg==
+"@ngrx/effects@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-7.0.0.tgz#57ea3a42ed970b748e78292e54fe02a768027b05"
+  integrity sha512-lhwt+UMDPYuxeTQ5vBw/MuKrIroHvQ6cLy0nGvNl8oPxakI2Jz/NAPuTYd+AdV/6ao9M9+kxXhQRFkAV53EEjA==
 
-"@ngrx/store-devtools@7.0.0-beta.0":
-  version "7.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-7.0.0-beta.0.tgz#849274a67fad1fca25a1a683f486b2f0e5542752"
-  integrity sha512-AZOioU7Shsiz2HHEiFHLTR5BNlD9vHuAod/Nn7gJs8hk9GXE25RtXvGP+v6el178YcErUtp6OPfr9joNVWurJg==
+"@ngrx/store-devtools@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-7.0.0.tgz#8be35ad8b455019c9ac583c92ad8f0ec0d538c37"
+  integrity sha512-VLYDIiK5uy6SfIh3PUWT8oXNSHtVefRm44h9MMDBBUQphu5fBmGB9wtkFHfVTmw5V9TdZ9KnUTvm5Dlln8VP0A==
 
-"@ngrx/store@7.0.0-beta.0":
-  version "7.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-7.0.0-beta.0.tgz#0e174ced7aace3b6544a1f3d34ec902642e8d127"
-  integrity sha512-349HWy74Pn00x2OQTErxt7cidkw8lV7ocdbK7AFJvu/LqGVS1hzM93JJQ3qHYAbsfeeMZXsIMpyeg6LSHQjnPw==
+"@ngrx/store@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-7.0.0.tgz#5472000197c2a388b09afceb2d062cb37b03d334"
+  integrity sha512-fF4A4De/vtQawxGBc1jV5HiLrc/J3NS8A2UDRoD3kLdviDzAlAber6kuj5XmM+xxaI9f9qnUrwOVXr/oPfqoBg==
 
 "@ngtools/webpack@7.0.4":
   version "7.0.4"
@@ -6880,6 +6880,11 @@ wbuf@^1.1.0, wbuf@^1.7.2:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
+
+web-animations-js@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/web-animations-js/-/web-animations-js-2.3.1.tgz#3a6d9bc15196377a90f8e2803fa5262165b04510"
+  integrity sha1-Om2bwVGWN3qQ+OKAP6UmIWWwRRA=
 
 webpack-core@^0.6.8:
   version "0.6.9"
