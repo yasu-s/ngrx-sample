@@ -10,11 +10,9 @@ describe('MemoService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-      ],
       providers: [
         MemoService,
-        { provide: HttpClient, useValue: { get: null } },
+        { provide: HttpClient, useValue: {} },
       ]
     });
 
@@ -23,7 +21,7 @@ describe('MemoService', () => {
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(service).toBeDefined();
   });
 
   describe('findAll', () => {

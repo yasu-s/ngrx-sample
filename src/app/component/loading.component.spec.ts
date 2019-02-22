@@ -1,5 +1,4 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { MatProgressSpinnerModule } from '@angular/material';
+import { TestBed } from '@angular/core/testing';
 import { StoreModule, Store } from '@ngrx/store';
 
 import { LoadingComponent } from './loading.component';
@@ -7,30 +6,25 @@ import { LoadingFeatureState, LoadingStoreModule, LoadingActionType } from '../s
 
 describe('LoadingComponent', () => {
   let component: LoadingComponent;
-  let fixture: ComponentFixture<LoadingComponent>;
   let store: Store<LoadingFeatureState>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        MatProgressSpinnerModule,
         StoreModule.forRoot({}),
         LoadingStoreModule,
       ],
-      declarations: [
+      providers: [
         LoadingComponent,
       ],
-    }).compileComponents();
-  }));
+    });
 
-  beforeEach(() => {
-    fixture   = TestBed.createComponent(LoadingComponent);
-    component = fixture.componentInstance;
+    component = TestBed.get(LoadingComponent);
     store     = TestBed.get(Store);
   });
 
   it('should be created', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 
   describe('isLoading$', () => {

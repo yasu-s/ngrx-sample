@@ -17,8 +17,6 @@ describe('MemoEffect', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-      ],
       providers: [
         MemoEffect,
         provideMockActions(() => actions),
@@ -31,7 +29,7 @@ describe('MemoEffect', () => {
   });
 
   it('should be created', () => {
-    expect(effect).toBeTruthy();
+    expect(effect).toBeDefined();
   });
 
   describe('findAll', () => {

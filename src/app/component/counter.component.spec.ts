@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { StoreModule, Store } from '@ngrx/store';
 
 import { CounterComponent } from './counter.component';
@@ -6,29 +6,25 @@ import { CounterFeatureState, CounterStoreModule, CounterActionType } from '../s
 
 describe('CounterComponent', () => {
   let component: CounterComponent;
-  let fixture: ComponentFixture<CounterComponent>;
   let store: Store<CounterFeatureState>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         StoreModule.forRoot({}),
         CounterStoreModule,
       ],
-      declarations: [
+      providers: [
         CounterComponent,
       ],
-    }).compileComponents();
-  }));
+    });
 
-  beforeEach(() => {
-    fixture   = TestBed.createComponent(CounterComponent);
-    component = fixture.componentInstance;
+    component = TestBed.get(CounterComponent);
     store     = TestBed.get(Store);
   });
 
   it('should be created', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 
   describe('count$', () => {

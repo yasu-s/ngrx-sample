@@ -1,6 +1,4 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
-import { MatListModule, MatButtonModule, MatInputModule } from '@angular/material';
+import { TestBed } from '@angular/core/testing';
 import { StoreModule, Store } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { provideMockActions } from '@ngrx/effects/testing';
@@ -12,44 +10,34 @@ import * as fromMemo from '../store/memo';
 
 describe('MemoComponent', () => {
   let component: MemoComponent;
-  let fixture: ComponentFixture<MemoComponent>;
   let store: Store<fromMemo.MemoFeatureState>;
   let actions: ReplaySubject<any>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        FormsModule,
-        MatListModule,
-        MatButtonModule,
-        MatInputModule,
         StoreModule.forRoot({}),
         EffectsModule.forRoot([]),
         StoreModule.forFeature(fromMemo.FEATURE_NAME, fromMemo.reducers),
       ],
-      declarations: [
-        MemoComponent,
-      ],
       providers: [
+        MemoComponent,
         provideMockActions(() => actions),
       ]
-    }).compileComponents();
-  }));
+    });
 
-  beforeEach(() => {
-    fixture   = TestBed.createComponent(MemoComponent);
-    component = fixture.componentInstance;
+    component = TestBed.get(MemoComponent);
     store     = TestBed.get(Store);
   });
 
   it('should be created', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 
   describe('ngOnInit', () => {
     it('success', () => {
       // setup
-      spyOn(store, 'dispatch').and.callThrough();
+      store.dispatch = jasmine.createSpy();
 
       // exercise
       component.ngOnInit();
@@ -91,7 +79,7 @@ describe('MemoComponent', () => {
     it('success', () => {
       // setup
       component.memo = 'dummy';
-      spyOn(store, 'dispatch').and.callThrough();
+      store.dispatch = jasmine.createSpy();
 
       // exercise
       component.addMemo();
@@ -103,7 +91,7 @@ describe('MemoComponent', () => {
     it('memo = empty', () => {
       // setup
       component.memo = '';
-      spyOn(store, 'dispatch').and.callThrough();
+      store.dispatch = jasmine.createSpy();
 
       // exercise
       component.addMemo();
