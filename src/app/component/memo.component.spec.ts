@@ -48,13 +48,43 @@ describe('MemoComponent', () => {
 
     it('MemoActionType.CreateMemoSuccess', () => {
       // setup
+      component.memo = 'a';
       actions = new ReplaySubject(1);
+      store.dispatch = jasmine.createSpy();
+      component.ngOnInit();
 
       // exercise
       actions.next(new fromMemo.CreateMemoSuccessAction({ memo: null }));
 
       // verify
       expect(component.memo).toBe('');
+    });
+
+    it('MemoActionType.CreateMemoFail', () => {
+      // setup
+      component.memo = 'a';
+      actions = new ReplaySubject(1);
+      component.ngOnInit();
+
+      // exercise
+      actions.next(new fromMemo.CreateMemoFailAction({ error: null }));
+
+      // verify
+      expect(component.memo).toBe('a');
+    });
+  });
+
+  describe('ngOnDestroy', () => {
+    it('success', () => {
+      // setup
+      const destroy = (component as any).onDestroy$;
+      destroy.emit = jasmine.createSpy();
+
+      // exercise
+      component.ngOnDestroy();
+
+      // verify
+      expect(destroy.emit).toHaveBeenCalled();
     });
   });
 

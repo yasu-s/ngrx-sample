@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { StoreModule, Store } from '@ngrx/store';
 
 import { MainComponent } from './main.component';
@@ -55,6 +55,21 @@ describe('MainComponent', () => {
       // verify
       expect(loadingStore.dispatch).toHaveBeenCalledWith({ type: fromLoading.LoadingActionType.Hide });
     });
+  });
+
+  describe('delay', () => {
+    it('success', fakeAsync(() => {
+      // setup
+      component.delayTime = 1;
+      loadingStore.dispatch = jasmine.createSpy();
+
+      // exercise
+      component.delay();
+      tick(10);
+
+      // verify
+      expect(loadingStore.dispatch).toHaveBeenCalledTimes(2);
+    }));
   });
 
   describe('increment', () => {

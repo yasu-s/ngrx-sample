@@ -12,6 +12,9 @@ import { CounterActionType, CounterState } from '../store/counter';
 })
 export class MainComponent {
 
+  /** 遅延時間 */
+  delayTime = 3000;
+
   /**
    *
    * @param loadingStore
@@ -31,7 +34,7 @@ export class MainComponent {
   delay(): void {
     this.loadingStore.dispatch({ type: LoadingActionType.Show });
 
-    of(null).pipe(delay(3000)).subscribe(_ => {
+    of(null).pipe(delay(this.delayTime)).subscribe(_ => {
       this.loadingStore.dispatch({ type: LoadingActionType.Hide });
     });
   }
